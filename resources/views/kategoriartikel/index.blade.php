@@ -1,11 +1,11 @@
-@extends('layouts.app')
+@extends('layouts.admin')
 @section('content')
 
 	<div class="row">
 	<div class="container">
 	<div class="col-md-12">
 	<div class="panel panel-primary">
-		<div class="panel-heading">Data Berita
+		<div class="panel-heading">Data Kategori Artikel
 			<div class="panel-title pull-right"><a href="{{ route('kategoriartikel.create') }}">Tambah Data</a>
 		</div>
 	</div>
@@ -15,7 +15,7 @@
 	<thead>
 		<tr>
 					<th>No</th>
-					<th>Nama Kategori</th>
+					<th>Nama Artikel</th>
 					<th colspan="3">Action</th>
 				</tr>	
 	           </thead>
@@ -25,7 +25,7 @@
 		  		@foreach($a as $data)
                          <tr>
                             <td>{{$no++}}</td>
-							<td>{{$data->nama_kategori}}</td>
+							<td>{{$data->nama_artikel}}</td>
 							<td>
 		<a class="btn btn-primary" href=" {{ route('kategoriartikel.edit',$data->id)}} ">Ubah</a>
 	</td>

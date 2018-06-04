@@ -64,11 +64,10 @@ class ArtikelController extends Controller
      * @param  \App\Artikel  $artikel
      * @return \Illuminate\Http\Response
      */
-    public function show(Artikel $artikel)
+    public function show(Request $artikel, $id)
     {
         $artikel = Artikel::findOrFail($id);
         return view('artikel.show',compact('artikel'));
-    }
     }
 
     /**
@@ -77,7 +76,7 @@ class ArtikelController extends Controller
      * @param  \App\Artikel  $artikel
      * @return \Illuminate\Http\Response
      */
-    public function edit(Artikel $artikel)
+    public function edit(Request $artikel, $id)
     {
         $artikel = Artikel::findOrFail($id);
         $kategoriartikel = KategoriArtikel::all();
@@ -92,7 +91,7 @@ class ArtikelController extends Controller
      * @param  \App\Artikel  $artikel
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Artikel $artikel)
+    public function update(Request $request, $id)
     {
         $this->validate($request,[
             'judul_artikel' => 'required|',
@@ -119,7 +118,7 @@ class ArtikelController extends Controller
      * @param  \App\Artikel  $artikel
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Artikel $artikel)
+    public function destroy(Request $artikel, $id)
     {
         $artikel = Artikel::findOrFail($id);
         $artikel->delete();

@@ -58,7 +58,7 @@ class GuruController extends Controller
      * @param  \App\Guru  $guru
      * @return \Illuminate\Http\Response
      */
-    public function show(Guru $guru)
+    public function show(Request $guru, $id)
     {
         $a = Guru::findOrFail($id);
         return view('guru.show',compact('a'));
@@ -70,7 +70,7 @@ class GuruController extends Controller
      * @param  \App\Guru  $guru
      * @return \Illuminate\Http\Response
      */
-    public function edit(Guru $guru)
+    public function edit(Request $guru, $id)
     {
         $a = Guru::findOrFail($id);
         return view('guru.edit',compact('a'));
@@ -83,7 +83,7 @@ class GuruController extends Controller
      * @param  \App\Guru  $guru
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Guru $guru)
+    public function update(Request $request, $id)
     {
         $this->validate($request,[
             'nama_guru' => 'required|',
@@ -106,7 +106,7 @@ class GuruController extends Controller
      * @param  \App\Guru  $guru
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Guru $guru)
+    public function destroy(Request $guru, $id)
     {
          $a = Guru::findOrFail($id);
         $a->delete();

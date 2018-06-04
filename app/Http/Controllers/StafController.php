@@ -58,7 +58,7 @@ class StafController extends Controller
      * @param  \App\Staf  $staf
      * @return \Illuminate\Http\Response
      */
-    public function show(Staf $staf)
+    public function show(Request $staf, $id)
     {
         $a = Staf::findOrFail($id);
         return view('staf.show',compact('a'));
@@ -70,7 +70,7 @@ class StafController extends Controller
      * @param  \App\Staf  $staf
      * @return \Illuminate\Http\Response
      */
-    public function edit(Staf $staf)
+    public function edit(Request $staf, $id)
     {
         $a = Staf::findOrFail($id);
         return view('staf.edit',compact('a'));
@@ -83,7 +83,7 @@ class StafController extends Controller
      * @param  \App\Staf  $staf
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Staf $staf)
+    public function update(Request $request, $id)
     {
         $this->validate($request,[
             'nama_staf' => 'required|',
@@ -106,7 +106,7 @@ class StafController extends Controller
      * @param  \App\Staf  $staf
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Staf $staf)
+    public function destroy(Request $staf, $id)
     {
         $a = Staf::findOrFail($id);
         $a->delete();

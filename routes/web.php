@@ -30,3 +30,7 @@ Route::resource('kurikulum','KurikulumController');
 Route::resource('prestasi','prestasiController');
 Route::resource('profile','ProfileController');
 Route::resource('staf','StafController');
+
+Route::get('cek', function(){
+    return view ('layouts.admin');
+});

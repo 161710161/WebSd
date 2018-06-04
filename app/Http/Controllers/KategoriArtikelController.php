@@ -56,7 +56,7 @@ class KategoriArtikelController extends Controller
      * @param  \App\KategoriArtikel  $kategoriArtikel
      * @return \Illuminate\Http\Response
      */
-    public function show(KategoriArtikel $kategoriArtikel)
+    public function show(KategoriArtikel $kategoriArtikel, $id)
     {
         $a = KategoriArtikel::findOrFail($id);
         return view('kategoriartikel.show',compact('a'));
@@ -68,7 +68,7 @@ class KategoriArtikelController extends Controller
      * @param  \App\KategoriArtikel  $kategoriArtikel
      * @return \Illuminate\Http\Response
      */
-    public function edit(KategoriArtikel $kategoriArtikel)
+    public function edit(KategoriArtikel $kategoriArtikel, $id)
     {
         $a = KategoriArtikel::findOrFail($id);
         return view('kategoriartikel.edit',compact('a'));
@@ -81,7 +81,7 @@ class KategoriArtikelController extends Controller
      * @param  \App\KategoriArtikel  $kategoriArtikel
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, KategoriArtikel $kategoriArtikel)
+    public function update(Request $request, KategoriArtikel $kategoriArtikel, $id)
     {
         $this->validate($request,[
             'nama_artikel' => 'required|'
@@ -102,7 +102,7 @@ class KategoriArtikelController extends Controller
      * @param  \App\KategoriArtikel  $kategoriArtikel
      * @return \Illuminate\Http\Response
      */
-    public function destroy(KategoriArtikel $kategoriArtikel)
+    public function destroy(KategoriArtikel $kategoriArtikel, $id)
     {
         $a = KategoriArtikel::findOrFail($id);
         $a->delete();

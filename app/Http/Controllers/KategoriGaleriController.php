@@ -56,7 +56,7 @@ class KategoriGaleriController extends Controller
      * @param  \App\KategoriGaleri  $kategoriGaleri
      * @return \Illuminate\Http\Response
      */
-    public function show(KategoriGaleri $kategoriGaleri)
+    public function show(KategoriGaleri $kategoriGaleri, $id)
     {
         $a = KategoriGaleri::findOrFail($id);
         return view('kategorigaleri.show',compact('a'));
@@ -68,7 +68,7 @@ class KategoriGaleriController extends Controller
      * @param  \App\KategoriGaleri  $kategoriGaleri
      * @return \Illuminate\Http\Response
      */
-    public function edit(KategoriGaleri $kategoriGaleri)
+    public function edit(KategoriGaleri $kategoriGaleri, $id)
     {
         $a = KategoriGaleri::findOrFail($id);
         return view('kategorigaleri.edit',compact('a'));
@@ -81,7 +81,7 @@ class KategoriGaleriController extends Controller
      * @param  \App\KategoriGaleri  $kategoriGaleri
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, KategoriGaleri $kategoriGaleri)
+    public function update(Request $request, KategoriGaleri $kategoriGaleri, $id)
     {
         $this->validate($request,[
             'nama_galeri' => 'required|'
@@ -102,7 +102,7 @@ class KategoriGaleriController extends Controller
      * @param  \App\KategoriGaleri  $kategoriGaleri
      * @return \Illuminate\Http\Response
      */
-    public function destroy(KategoriGaleri $kategoriGaleri)
+    public function destroy(KategoriGaleri $kategoriGaleri, $id)
     {
         $a = KategoriGaleri::findOrFail($id);
         $a->delete();
